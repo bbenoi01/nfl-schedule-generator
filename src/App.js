@@ -70,8 +70,8 @@ class App extends Component {
   render() {
     return (
       <div className='App container'>
-        <h1>Your NFL Team Schedule</h1>
-        <h2><small>See your favorite team's schedule</small></h2>
+        <h1 className='text-danger bg-dark'>Your NFL Team Schedule</h1>
+        <h2 className='text-danger bg-dark'><small>See your favorite team's schedule</small></h2>
         <hr />
         <div className='row'>
           <TeamChoiceList  
