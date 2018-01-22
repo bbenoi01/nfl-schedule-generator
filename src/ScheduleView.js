@@ -54,7 +54,7 @@ const ScheduleView = props => {
                 <div className = 'card-header text-white'>
                     Your Team 's Schedule
                 </div>
-                <div className = 'card-body'>
+                <div className = 'card-body' id='scroll-box'>
                     <div className = 'row'>
                         { teamSchedule }
                     </div>
