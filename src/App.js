@@ -54,7 +54,6 @@ class App extends Component {
 
   getSchedule(e) {
     e.preventDefault();
-    
     axios.get('https://api.fantasydata.net/v3/nfl/scores/JSON/Schedules/' + this.state.scheduleYear + '?', config)
       .then(response => {
         this.setState({
