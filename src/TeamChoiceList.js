@@ -8,7 +8,7 @@ const TeamChoiceList = props => {
                 <div className='card-header'>
                     Enter team and season here
                 </div>
-                <form onSubmit={props.getSchedule} >
+                <form onSubmit={props.getSchedule} id='teams-form'>
                     <div className='card-body form-group'>
                         <strong>Choose your team:</strong>
                         <select className='form-control' id='team-list' onChange={props.selectedTeamInput} value={props.selectedTeam} >
@@ -20,7 +20,7 @@ const TeamChoiceList = props => {
                         <input type='text' className='form-control' onChange={props.scheduleYearInput} value={props.scheduleYear} placeholder='yyyy' />
                     </div>
                     <div className='card-footer'>
-                        <button type='submit' className='btn btn-info'>Get your schedule</button>
+                        <a href='/'><button type='submit' className='btn btn-info'>Get your schedule</button></a>
                     </div>
                 </form>
             </div>

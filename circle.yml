@@ -1,8 +1,0 @@
-deployment:
-  prod:
-    branch: master
-    heroku:
-      appname: bb-nfl-schedule-generator
-machine:
-  node:
-    version: 8.4.0      
