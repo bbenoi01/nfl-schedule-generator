@@ -28,7 +28,7 @@ const ScheduleView = props => {
                 <div className = 'col-md-6' key = { props.scheduleData[i].GameKey }>
                     <div className = 'card bg-light mb-3'>
                         <div className = 'card-header'>
-                            Week: { props.scheduleData[i].Week }
+                            <b>Week: { props.scheduleData[i].Week }</b>
                         </div>
                         <div className = 'card-body'>
                             <p className = 'card-text'><b>Date:</b> { moment(props.scheduleData[i].Date.split('T', 1), 'YYYY-MM-DD').format('MM-DD-YYYY') }</p>
