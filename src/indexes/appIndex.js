@@ -3,12 +3,13 @@ import App from '../App';
 
 function mapStoreToProps(store) {
     return {
-        nfl: store.app.nflTeams,
-        nba: store.app.nbaTeams,
-        mlb: store.app.mlbTeams,
-        nhl: store.app.nhlTeams,
+        nflTeams: store.app.nflTeams,
+        nbaTeams: store.app.nbaTeams,
+        mlbTeams: store.app.mlbTeams,
+        nhlTeams: store.app.nhlTeams,
         year: store.app.scheduleYear,
         team: store.app.selectedTeam,
+        sport: store.app.selectedSport,
         schedule: store.app.fullSchedule
     }
 }

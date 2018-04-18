@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     nhlTeams: [],
 
     scheduleYear: '',
+    selectedSport: '',
     selectedTeam: '',
     fullSchedule: []
 };
@@ -18,6 +19,24 @@ export default function AppReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 nflTeams: payload
+            };
+
+        case (types.GET_NBA):
+            return {
+                ...state,
+                nbaTeams: payload
+            };
+
+        case (types.GET_NHL):
+            return {
+                ...state,
+                nhlTeams: payload
+            };
+
+        case (types.GET_MLB):
+            return {
+                ...state,
+                mlbTeams: payload
             };
 
         case (types.FULL_SCHEDULE):
@@ -32,6 +51,12 @@ export default function AppReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 selectedTeam: payload
+            };
+
+        case (types.SELECTED_SPORT_TOGGLE):
+            return {
+                ...state,
+                selectedSport: payload
             };
 
         case (types.SCHEDULE_YEAR_INPUT):

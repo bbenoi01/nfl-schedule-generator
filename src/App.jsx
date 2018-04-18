@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import TeamChoiceList from './indexes/TeamChoiceListIndex';
 import ScheduleView from './indexes/ScheduleViewIndex';
 import {
-  getNFL
+  getNFL,
+  getMLB,
+  getNBA,
+  getNHL
 } from './actions/appAction';
 
 
@@ -12,6 +15,9 @@ class App extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getNFL());
+    dispatch(getMLB());
+    dispatch(getNBA());
+    dispatch(getNHL());
   }
 
   render() {
