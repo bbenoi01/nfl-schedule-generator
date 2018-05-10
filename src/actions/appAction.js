@@ -6,8 +6,11 @@ export const types = {
     SCHEDULE_YEAR_INPUT: 'SCHEDULE_YEAR_INPUT',
     GET_NFL: 'GET_NFL',
     GET_NBA: 'GET_NBA',
+    NBA_ARENAS: 'NBA_ARENAS',
     GET_NHL: 'GET_NHL',
+    NHL_ARENAS: 'NHL_ARENAS',
     GET_MLB: 'GET_MLB',
+    MLB_STADIUMS: 'MLB_STADIUMS',
     FULL_SCHEDULE: 'FULL_SCHEDULE'
 }
 
@@ -51,6 +54,18 @@ export function getNBA() {
     }
 }
 
+export function nbaArenas() {
+    return (dispatch) => {
+        axios.get('https://api.fantasydata.net/v3/nba/scores/JSON/Stadiums', nbaConfig)
+        .then(res => {
+            dispatch({
+                type: types.NBA_ARENAS,
+                payload: res.data
+            })
+        }).catch(err => console.log('Unable to get Arenas'));
+    }
+}
+
 export function getNHL() {
     return (dispatch) => {
         axios.get('https://api.fantasydata.net/v3/nhl/scores/JSON/teams?', nhlConfig)
@@ -75,61 +90,52 @@ export function getMLB() {
     }
 }
 
-export function getSchedule(sport, year) {
-    switch(sport) {
-        case 'nfl':
-            return (dispatch) => {
-                axios.get('https://api.fantasydata.net/v3/nfl/scores/JSON/Schedules/' + year + '?', nflConfig)
-                .then(res => {
-                    dispatch({
-                        type: types.FULL_SCHEDULE,
-                        payload: res.data
-                    })
-                }).catch(error => {
-                    console.log('Error getting schedule', error);
-                });
-            }
-
-        case 'nba':
-            return (dispatch) => {
-                axios.get('https://api.fantasydata.net/v3/nba/scores/JSON/Games/' + year + '?', nbaConfig)
-                .then(res => {
-                    dispatch({
-                        type: types.FULL_SCHEDULE,
-                        payload: res.data
-                    })
-                }).catch(error => {
-                    console.log('Error getting schedule', error);
-                });
-            }
-
-        case 'nhl':
-            return (dispatch) => {
-                axios.get('https://api.fantasydata.net/v3/nhl/scores/JSON/Games/' + year + '?', nhlConfig)
-                .then(res => {
-                    dispatch({
-                        type: types.FULL_SCHEDULE,
-                        payload: res.data
-                    })
-                }).catch(error => {
-                    console.log('Error getting schedule', error);
-                });
-            }
-
-        case 'mlb':
-            return (dispatch) => {
-                axios.get('https://api.fantasydata.net/v3/mlb/scores/JSON/Games/' + year + '?', mlbConfig)
-                .then(res => {
-                    dispatch({
-                        type: types.FULL_SCHEDULE,
-                        payload: res.data
-                    })
-                }).catch(error => {
-                    console.log('Error getting schedule', error);
-                });
-            }
+export function getNFLSchedule(year) {
+    return (dispatch) => {
+        axios.get('https://api.fantasydata.net/v3/nfl/scores/JSON/Schedules/' + year + '?', nflConfig)
+        .then(res => {
+            dispatch({
+                type: types.FULL_SCHEDULE,
+                payload: res.data
+            })
+        }).catch(error => console.log('Error getting schedule'));
     }
+}
 
+export function getNBASchedule(year) {
+    return (dispatch) => {
+        axios.get('https://api.fantasydata.net/v3/nba/scores/JSON/Games/' + year + '?', nbaConfig)
+        .then(res => {
+            dispatch({
+                type: types.FULL_SCHEDULE,
+                payload: res.data
+            })
+        }).catch(error => console.log('Error getting schedule'));
+    }
+}
+
+export function getNHLSchedule(year) {
+    return (dispatch) => {
+        axios.get('https://api.fantasydata.net/v3/nhl/scores/JSON/Games/' + year + '?', nhlConfig)
+        .then(res => {
+            dispatch({
+                type: types.FULL_SCHEDULE,
+                payload: res.data
+            })
+        }).catch(error => console.log('Error getting schedule'));
+    }
+}
+
+export function getMLBSchedule(year) {
+    return (dispatch) => {
+        axios.get('https://api.fantasydata.net/v3/mlb/scores/JSON/Games/' + year + '?', mlbConfig)
+        .then(res => {
+            dispatch({
+                type: types.FULL_SCHEDULE,
+                payload: res.data
+            })
+        }).catch(error => console.log('Error getting schedule'));
+    }
 }
 
 export function teamToggle(value) {

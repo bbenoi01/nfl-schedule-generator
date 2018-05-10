@@ -1,40 +1,26 @@
 import React, { Component } from 'react';
-import TeamChoiceList from './indexes/TeamChoiceListIndex';
-import ScheduleView from './indexes/ScheduleViewIndex';
-import {
-  getNFL,
-  getMLB,
-  getNBA,
-  getNHL
-} from './actions/appAction';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Landing from './indexes/landingIndex';
+import Football from './indexes/footballIndex';
+import Basketball from './indexes/basketballIndex';
+import Hockey from './indexes/hockeyIndex';
+import Baseball from './indexes/baseballIndex';
 
 
 
 class App extends Component {
 
-  componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(getNFL());
-    dispatch(getMLB());
-    dispatch(getNBA());
-    dispatch(getNHL());
-  }
-
   render() {
     return (
-      <div className='App container'>
-        <div className='jumbotron bg-dark'>
-          <div className='container'>
-            <h1 className='text-white'>Your NFL Team Schedule</h1>
-            <h2 className='text-white'><small>See your favorite team's schedule</small></h2>
-          </div>
+      <Router>
+        <div>
+          <Route exact path='/' component={Landing}/>
+          <Route exact path='/football' component={Football}/>
+          <Route exact path='/basketball' component={Basketball}/>
+          <Route exact path='/hockey' component={Hockey}/>
+          <Route exact path='/baseball' component={Baseball}/>
         </div>
-        <hr />
-        <div className='row'>
-          <TeamChoiceList />
-          <ScheduleView />
-        </div>
-      </div>
+      </Router>
     );
   }
 }

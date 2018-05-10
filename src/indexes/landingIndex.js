@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../App';
+import Landing from '../components/landing';
 
 function mapStoreToProps(store) {
     return {
@@ -15,4 +15,4 @@ function mapStoreToProps(store) {
     }
 }
 
-export default connect(mapStoreToProps)(App);
+export default connect(mapStoreToProps)(Landing);

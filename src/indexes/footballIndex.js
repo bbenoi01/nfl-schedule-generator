@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import TeamChoiceList from '../components/TeamChoiceList';
+import Football from '../components/football';
 
 function mapStoreToProps(store) {
     return {
         nflTeams: store.app.nflTeams,
         nbaTeams: store.app.nbaTeams,
+        nbaArenas: store.app.nbaArenas,
         mlbTeams: store.app.mlbTeams,
         nhlTeams: store.app.nhlTeams,
         year: store.app.scheduleYear,
@@ -14,4 +15,4 @@ function mapStoreToProps(store) {
     }
 }
 
-export default connect(mapStoreToProps)(TeamChoiceList);
+export default connect(mapStoreToProps)(Football);

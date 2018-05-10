@@ -3,8 +3,11 @@ import { types } from '../actions/appAction';
 const INITIAL_STATE = {
     nflTeams: [],
     nbaTeams: [],
+    nbaArenas: [],
     mlbTeams: [],
+    mlbStadiums: [],
     nhlTeams: [],
+    nhlArenas: [],
 
     scheduleYear: '',
     selectedSport: '',
@@ -25,6 +28,12 @@ export default function AppReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 nbaTeams: payload
+            };
+
+        case (types.nbaArenas):
+            return {
+                ...state,
+                nbaArenas: payload
             };
 
         case (types.GET_NHL):
