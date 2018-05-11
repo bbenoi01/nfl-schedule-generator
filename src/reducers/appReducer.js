@@ -76,22 +76,22 @@ export default function AppReducer(state = INITIAL_STATE, action) {
 
         case (types.SPORT_GO): 
             if(payload === 'nfl') {
-                window.location.href='http://localhost:3000/#/football';
+                window.location.href='https://bb-nfl-schedule-generator.herokuapp.com/#/football';
                 return {
                     ...state
                 };
             } else if(payload === 'nba') {
-                window.location.href='http://localhost:3000/#/basketball';
+                window.location.href='https://bb-nfl-schedule-generator.herokuapp.com/#/basketball';
                 return {
                     ...state
                 };
             } else if(payload === 'nhl') {
-                window.location.href='http://localhost:3000/#/hockey';
+                window.location.href='https://bb-nfl-schedule-generator.herokuapp.com/#/hockey';
                 return {
                     ...state
                 };
             } else if(payload === 'mlb') {
-                window.location.href='http://localhost:3000/#/baseball';
+                window.location.href='https://bb-nfl-schedule-generator.herokuapp.com/#/baseball';
                 return {
                     ...state
                 };
