@@ -104,8 +104,9 @@ export default class Football extends Component {
         }
 
         return (
-            <div className="valign-wrapper" id='full-page'>
+            <div className="valign-wrapper football" id='full-page'>
                 <div className="container">
+                <a href="/">Home</a>
                     <form onSubmit={this.getNFLSchedule} id='teams-form' className='col s12'>
                         <div className="row">
                             <div className="input-field col s6">

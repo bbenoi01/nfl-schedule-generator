@@ -11,7 +11,8 @@ export const types = {
     NHL_ARENAS: 'NHL_ARENAS',
     GET_MLB: 'GET_MLB',
     MLB_STADIUMS: 'MLB_STADIUMS',
-    FULL_SCHEDULE: 'FULL_SCHEDULE'
+    FULL_SCHEDULE: 'FULL_SCHEDULE',
+    SPORT_GO: 'SPORT_GO'
 }
 
 const nflConfig = {
@@ -149,6 +150,13 @@ export function sportToggle(value) {
     return {
         type: types.SELECTED_SPORT_TOGGLE,
         payload: value
+    };
+}
+
+export function sportGo(sport) {
+    return {
+        type: types.SPORT_GO,
+        payload: sport
     };
 }
 

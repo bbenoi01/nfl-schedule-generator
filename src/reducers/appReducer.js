@@ -9,8 +9,8 @@ const INITIAL_STATE = {
     nhlTeams: [],
     nhlArenas: [],
 
-    scheduleYear: '',
     selectedSport: '',
+    scheduleYear: '',
     selectedTeam: '',
     fullSchedule: []
 };
@@ -73,7 +73,30 @@ export default function AppReducer(state = INITIAL_STATE, action) {
                 ...state,
                 scheduleYear: payload
             }
-        
+
+        case (types.SPORT_GO): 
+            if(payload === 'nfl') {
+                window.location.href='http://localhost:3000/#/football';
+                return {
+                    ...state
+                };
+            } else if(payload === 'nba') {
+                window.location.href='http://localhost:3000/#/basketball';
+                return {
+                    ...state
+                };
+            } else if(payload === 'nhl') {
+                window.location.href='http://localhost:3000/#/hockey';
+                return {
+                    ...state
+                };
+            } else if(payload === 'mlb') {
+                window.location.href='http://localhost:3000/#/baseball';
+                return {
+                    ...state
+                };
+            }
+            break;
         
         default: return state;
     }
