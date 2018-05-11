@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../App';
+import Basketball from '../components/basketball';
 
 function mapStoreToProps(store) {
     return {
@@ -15,4 +15,4 @@ function mapStoreToProps(store) {
     }
 }
 
-export default connect(mapStoreToProps)(App);
+export default connect(mapStoreToProps)(Basketball);
