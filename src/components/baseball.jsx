@@ -99,7 +99,7 @@ export default class Baseball extends Component {
                     <form onSubmit={this.getMLBSchedule} id='teams-form' className='col s12'>
                         <div className="row">
                             <div className="input-field col s6">
-                                <select onChange={this.selectedTeamInput} id='baseballSelect'>
+                                <select className='browser-default' onChange={this.selectedTeamInput} id='baseballSelect'>
                                     <option value="" disabled selected>Choose your team</option>
                                     {mlbTeams.map(mlbTeam =>
                                         <option key={mlbTeam.Key} value={mlbTeam.Key}>{mlbTeam.City} {mlbTeam.Name}</option>
@@ -107,7 +107,7 @@ export default class Baseball extends Component {
                                 </select>
                             </div>
                             <div className="input-field col s6">
-                                <input type='text' className='validate' onChange={this.scheduleYearInput} placeholder='yyyy'/>
+                                <input type='text' className='validate white-text' style={{background: 'black'}} onChange={this.scheduleYearInput} placeholder='yyyy'/>
                             </div>
                         </div>
                         <div className="center">
@@ -118,10 +118,10 @@ export default class Baseball extends Component {
                     </form>
                     <div className="row">
                         <div className="col m12">
-                            <div className="card">
+                            <div className="card transparent scheduleView">
                                 <div className="card-content">
-                                    <span className="card-title center">
-                                        Your Team Schedule
+                                    <span className="card-title center white-text" style={{background: 'black'}}>
+                                        <b>Your Team Schedule</b>
                                     </span>
                                     <div className="row">
                                         {teamSchedule}

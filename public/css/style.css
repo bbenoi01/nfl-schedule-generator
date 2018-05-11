@@ -20,6 +20,11 @@
     text-align: center;
 }
 
+.scheduleView {
+  max-height: 75vh;
+  overflow: auto;
+}
+
 .landing {
   background-image: url(/Titanium.jpg);
   min-height: 100vh;
@@ -30,7 +35,7 @@
 }
 
 .football {
-  background-image: url(/NFLalternate.jpg);
+  background-image: url(/NFLbackground.jpg);
   min-height: 100vh;
   max-width: 100vw;
   background-position: center;

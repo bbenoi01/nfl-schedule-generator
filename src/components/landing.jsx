@@ -32,7 +32,7 @@ export default class Landing extends Component {
                     <form onSubmit={this.handleClick}>
                         <div className="row">
                             <div className="input-field col s6 offset-s3">
-                                <select onChange={this.selectedSportInput}>
+                                <select className='browser-default' onChange={this.selectedSportInput}>
                                     <option value="" disabled selected>Choose your sport</option>
                                     <option value="nfl">NFL</option>
                                     <option value="nba">NBA</option>
