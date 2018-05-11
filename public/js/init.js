@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('select').formSelect();
-  });
-
-  $(document).ready(function(){
     $('.footballSelect').formSelect();
+    $('.basketballSelect').formSelect();
+    $('.hockeySelect').formSelect();
+    $('.baseballSelect').formSelect();
   });

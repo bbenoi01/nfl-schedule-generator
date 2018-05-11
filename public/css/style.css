@@ -28,3 +28,39 @@
   background-repeat: no-repeat;
   background-size: cover  
 }
+
+.football {
+  background-image: url(/NFLalternate.jpg);
+  min-height: 100vh;
+  max-width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover  
+}
+
+.basketball {
+  background-image: url(/NBAbackground.jpg);
+  min-height: 100vh;
+  max-width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover  
+}
+
+.hockey {
+  background-image: url(/NHLbackground.jpg);
+  min-height: 100vh;
+  max-width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover  
+}
+
+.baseball {
+  background-image: url(/MLBbackground.jpg);
+  min-height: 100vh;
+  max-width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover  
+}

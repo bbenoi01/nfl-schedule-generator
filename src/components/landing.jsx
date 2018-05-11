@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
-    sportToggle
+    sportToggle,
+    sportGo
 } from '../actions/appAction';
 
 export default class Landing extends Component {
@@ -8,6 +9,7 @@ export default class Landing extends Component {
         super(props);
 
         this.selectedSportInput = this.selectedSportInput.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     selectedSportInput(e) {
@@ -16,13 +18,19 @@ export default class Landing extends Component {
         dispatch(sportToggle(value));
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        const { dispatch, sport } = this.props;
+        dispatch(sportGo(sport));
+    }
+
 
     render() {
         return (
             <div className="valign-wrapper landing" id='full-page'>
                 <div className="container">
-                    <div className="row">
-                        <form action="">
+                    <form onSubmit={this.handleClick}>
+                        <div className="row">
                             <div className="input-field col s6 offset-s3">
                                 <select onChange={this.selectedSportInput}>
                                     <option value="" disabled selected>Choose your sport</option>
@@ -32,8 +40,13 @@ export default class Landing extends Component {
                                     <option value="mlb">MLB</option>
                                 </select>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div className="center">
+                            <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i className="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         );

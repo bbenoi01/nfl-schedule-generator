@@ -53,39 +53,28 @@ export default class Baseball extends Component {
         if(schedule.length > 0) {
             for(let i = 0; i < schedule.length; i++) {
 
-                if(team === schedule[i].HomeTeam && schedule[i].AwayTeam === 'BYE') {
+                if(team === schedule[i].AwayTeam || team === schedule[i].HomeTeam) {
                     teamSchedule.push(
-                        <div className='col m6' key={schedule[i].GameKey}>
-                            <div className="card">
-                                <div className="card-content">
-                                    <span className="card-title center"><b>Week: {schedule[i].Week}</b></span>
-                                    <h3 className='center'>Bye Week</h3>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                } else if(team === schedule[i].AwayTeam || team === schedule[i].HomeTeam) {
-                    teamSchedule.push(
-                        <div className='col m6' key={schedule[i].GameKey}>
+                        <div className='col m6' key={schedule[i].GameID}>
                             <div className="card">
                                 <div className="card-content">
                                     <span className="card-title center">
-                                        <b>Week: {schedule[i].Week}</b><br/>
-                                        {moment(schedule[i].Date.split('T', 1), 'YYYY-MM-DD').format('MM-DD-YYYY')}
+                                        <b>Week: {moment(schedule[i].Day.split('T', 1), 'YYYY-MM-DD').format('MM-DD-YYYY')}</b><br/>
+                                        
                                     </span>
                                     <div className="row center">
                                         <div className="col m6">
                                             <p><b>Home Team:</b></p><br/>
                                             <p>{schedule[i].HomeTeam}</p><br/>
-                                            <p></p>
+                                            <p>{schedule[i].HomeTeamRuns}</p>
                                         </div>
                                         <div className="col m6">
                                             <p><b>Away Team:</b></p><br/>
                                             <p>{schedule[i].AwayTeam}</p><br/>
-                                            <p></p>
+                                            <p>{schedule[i].AwayTeamRuns}</p>
                                         </div>
                                     </div>
-                                    <div className="row center">
+                                    {/* <div className="row center">
                                         <div className="col m6 offset-m3">
                                             <p><b>Forecast:</b> { schedule[i].ForecastDescription }</p><br/>
                                             <p><b>Stadium:</b> { schedule[i].StadiumDetails.Name }</p><br/>
@@ -94,7 +83,7 @@ export default class Baseball extends Component {
                                         <Map center = {[schedule[i].StadiumDetails.GeoLat, schedule[i].StadiumDetails.GeoLong]}zoom = { 16 }width = { 250 }height = { 200 }>
                                             <Marker anchor = {[schedule[i].StadiumDetails.GeoLat, schedule[i].StadiumDetails.GeoLong]}payload = { 1 }/>
                                         </Map>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -104,15 +93,16 @@ export default class Baseball extends Component {
         }
 
         return (
-            <div className="valign-wrapper" id='full-page'>
+            <div className="valign-wrapper baseball" id='full-page'>
                 <div className="container">
+                <a href="/">Home</a>
                     <form onSubmit={this.getMLBSchedule} id='teams-form' className='col s12'>
                         <div className="row">
                             <div className="input-field col s6">
                                 <select onChange={this.selectedTeamInput} id='baseballSelect'>
                                     <option value="" disabled selected>Choose your team</option>
                                     {mlbTeams.map(mlbTeam =>
-                                        <option key={mlbTeam.Key} value={mlbTeam.Key}>{mlbTeam.FullName}</option>
+                                        <option key={mlbTeam.Key} value={mlbTeam.Key}>{mlbTeam.City} {mlbTeam.Name}</option>
                                     )}
                                 </select>
                             </div>
