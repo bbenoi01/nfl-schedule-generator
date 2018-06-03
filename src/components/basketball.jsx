@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Map from 'pigeon-maps';
-import Marker from 'pigeon-marker';
+// import Map from 'pigeon-maps';
+// import Marker from 'pigeon-marker';
 import moment from 'moment';
 import {
     getNBA,
@@ -93,35 +93,44 @@ export default class Basketball extends Component {
 
         return (
             <div className="valign-wrapper basketball" id='full-page'>
-                <div className="container">
-                <a href="/">Home</a>
-                    <form onSubmit={this.getNBASchedule} id='teams-form' className='col s12'>
-                        <div className="row">
-                            <div className="input-field col s6">
-                                <select className='browser-default' onChange={this.selectedTeamInput} id='basketballSelect'>
-                                    <option value="" disabled selected>Choose your team</option>
-                                    {nbaTeams.map(nbaTeam =>
-                                        <option key={nbaTeam.Key} value={nbaTeam.Key}>{nbaTeam.City} {nbaTeam.Name}</option>
-                                    )}
-                                </select>
-                            </div>
-                            <div className="input-field col s6">
-                                <input type='text' className='validate white-text' style={{background: 'black'}} onChange={this.scheduleYearInput} placeholder='yyyy'/>
-                            </div>
-                        </div>
-                        <div className="center">
-                            <button className="btn waves-effect waves-light" type="submit">Get Your Schedule
-                                <i className="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </form>
-                    <div className="row">
-                        <div className="col m12">
-                            <div className="card transparent scheduleView">
+                <div className="row">
+                    <div className="col s12">
+                        <form onSubmit={this.getNBASchedule} id='teams-form'>
+                            <div className="card black stripe">
                                 <div className="card-content">
-                                    <span className="card-title center white-text" style={{background: 'black'}}>
+                                <a href="/">Home</a>
+                                    <div className="row">
+                                        <div className="input-field col s3 offset-s2">
+                                            <select className='browser-default' onChange={this.selectedTeamInput} id='basketballSelect'>
+                                                <option value="" disabled selected>Choose your team</option>
+                                                {nbaTeams.map(nbaTeam =>
+                                                    <option key={nbaTeam.Key} value={nbaTeam.Key}>{nbaTeam.City} {nbaTeam.Name}</option>
+                                                )}
+                                            </select>
+                                        </div>
+                                        <div className="input-field col s3 offset-s2">
+                                            <input type='text' className='validate' style={{background: 'white'}} onChange={this.scheduleYearInput} placeholder='yyyy'/>
+                                        </div>
+                                    </div>
+                                    <div className="center">
+                                        <button className="btn blue darken-4 waves-effect waves-light" type="submit">Get Your Schedule
+                                            <i className="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="container">
+                        <div className="col s12">
+                            <div className="card transparent">
+                                <div className="card-content">
+                                    <span className="card-title center white-text black" id="scheduleBanner">
+                                        <br/>
                                         <b>Your Team Schedule</b>
                                     </span>
+                                </div>
+                                <div className="card-content scheduleView">
                                     <div className="row">
                                         {teamSchedule}
                                     </div>

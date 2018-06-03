@@ -16,6 +16,10 @@
     min-height: 100vh;
   }
 
+  #scheduleBanner {
+    opacity: .8
+  }
+
   .App {
     text-align: center;
 }
@@ -23,6 +27,16 @@
 .scheduleView {
   max-height: 75vh;
   overflow: auto;
+}
+
+.stripe {
+  height: 225px;
+  width: 98vw;
+  opacity: .8
+}
+
+.card-title {
+  height: 100px
 }
 
 .landing {
